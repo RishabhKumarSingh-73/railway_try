@@ -3,11 +3,11 @@ from openai import OpenAI
 async def memory_assessment():
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="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"
+        api_key="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"
     )
 
     completion = client.chat.completions.create(
-        model="openai/gpt-3.5-turbo-0613",
+        model="deepseek/deepseek-r1-zero:free",
         messages=[
             {
                 "role": "user",

@@ -17,9 +17,10 @@ def greet(name: str):
 
 #assessment
 @app.get("/memory")
-async def get_memory_recall_assessment_questions():
+async def memory_assessment_endpoint():
     questions_str = await memory_assessment()
-    data = json.loads(questions_str)
+    unboxed_string = remove_boxed_formatting(questions_str)
+    data = json.loads(unboxed_string)
     return data
 
 #roadmap
@@ -30,7 +31,10 @@ async def get_memory_recall_assessment_questions():
 
 #vedio
 
-
+def remove_boxed_formatting(response: str) -> str:
+    if response.startswith(r"\boxed{") and response.endswith("}"):
+        return response[len(r"\boxed{"):-1]  
+    return response
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))  # Default to 8000 if not set
