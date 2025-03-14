@@ -3,7 +3,7 @@ from openai import OpenAI
 async def memory_assessment():
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="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"
+        api_key="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"
     )
 
     completion = client.chat.completions.create(
