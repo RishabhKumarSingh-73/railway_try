@@ -7,7 +7,7 @@ async def memory_assessment():
     )
 
     completion = client.chat.completions.create(
-        model="openai/gpt-3.5-turbo-0613",
+        model="mistralai/mistral-7b-instruct:free",
         messages=[
             {
                 "role": "user",
